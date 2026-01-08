@@ -1,16 +1,16 @@
-name: Build Windows EXE and Release
+name: Build Windows EXE
 
 on:
   push:
     tags:
-      - "v*"
+      - 'v*'
 
 jobs:
   build:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout repo
+    - name: Checkout repository
       uses: actions/checkout@v4
 
     - name: Set up Python
@@ -24,7 +24,7 @@ jobs:
     - name: Build EXE
       run: pyinstaller --onefile --console main.py --name SAC
 
-    - name: Create ZIP for release
+    - name: Prepare release ZIP
       run: |
         mkdir release
         copy dist\SAC.exe release\SAC.exe
@@ -32,11 +32,8 @@ jobs:
         copy Instruction_UA.txt release\Instruction_UA.txt
         powershell Compress-Archive -Path release\* -DestinationPath SAC-release.zip
 
-    - name: Create GitHub Release
-      uses: softprops/action-gh-release@v1
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
       with:
-        tag_name: ${{ github.ref_name }}
-        name: Release ${{ github.ref_name }}
-        files: SAC-release.zip
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        name: SAC-release
+        path: SAC-release.zip
