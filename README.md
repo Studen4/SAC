@@ -1,0 +1,2 @@
+# SAC
+Clan activity checker
