@@ -1,6 +1,6 @@
 import csv
 
-OUTPUT_FILE = "output.csv"
+OUTPUT_FILE = "Test/output.csv"
 
 
 def run():

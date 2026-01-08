@@ -1,8 +1,8 @@
 import csv
 from datetime import datetime
 
-INPUT_FILE = "input.csv"
-OUTPUT_FILE = "output.csv"
+INPUT_FILE = "Test/input.csv"
+OUTPUT_FILE = "Test/output.csv"
 
 
 def run():
