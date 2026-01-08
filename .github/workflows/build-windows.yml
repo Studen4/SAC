@@ -33,7 +33,7 @@ jobs:
         powershell Compress-Archive -Path release\* -DestinationPath SAC-release.zip
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: SAC-release
         path: SAC-release.zip
