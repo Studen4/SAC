@@ -32,9 +32,10 @@ jobs:
         copy Instruction_UA.txt release\Instruction_UA.txt
         powershell Compress-Archive -Path release\* -DestinationPath SAC-release.zip
 
-    - name: Upload ZIP to GitHub Release
-      uses: ncipollo/release-action@v1
+    - name: Create GitHub Release
+      uses: ncipollo/release-action@v2
       with:
         tag: ${{ github.ref_name }}
         name: Release ${{ github.ref_name }}
-        files: SAC-release.zip
+        artifacts: SAC-release.zip
+        token: ${{ secrets.GITHUB_TOKEN }}
