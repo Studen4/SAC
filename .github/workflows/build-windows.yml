@@ -33,9 +33,10 @@ jobs:
         powershell Compress-Archive -Path release\* -DestinationPath SAC-release.zip
 
     - name: Create GitHub Release
-      uses: ncipollo/release-action@v2
+      uses: softprops/action-gh-release@v1
       with:
-        tag: ${{ github.ref_name }}
+        tag_name: ${{ github.ref_name }}
         name: Release ${{ github.ref_name }}
-        artifacts: SAC-release.zip
-        token: ${{ secrets.GITHUB_TOKEN }}
+        files: SAC-release.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
