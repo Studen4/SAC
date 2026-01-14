@@ -2,8 +2,8 @@ import csv
 import os
 from datetime import datetime
 
-INPUT_FILE = "Test/input.csv"
-OUTPUT_FILE = "Test/output.csv"
+INPUT_FILE = "Workspace/input.csv"
+OUTPUT_FILE = "Workspace/output.csv"
 
 
 def is_date_valid(date_str):
