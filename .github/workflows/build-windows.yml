@@ -28,7 +28,7 @@ jobs:
       run: |
         mkdir release
         copy dist\SAC.exe release\SAC.exe
-        xcopy Test release\Test /E /I
+        xcopy Workspace release\Workspace /E /I
         copy Instruction_UA.txt release\Instruction_UA.txt
         powershell Compress-Archive -Path release\* -DestinationPath SAC-release.zip
 
