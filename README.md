@@ -10,4 +10,5 @@ Utility for tracking clan members activity.
    - N → create output.csv
    - C → check files
    - S → start processing
+   - V → visualize total result
    - E → exit
