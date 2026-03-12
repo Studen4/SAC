@@ -27,6 +27,7 @@ jobs:
     - name: Prepare release ZIP
       run: |
         mkdir release
+        mkdir release\Converter
         copy dist\SAC.exe release\SAC.exe
         xcopy Workspace release\Workspace /E /I
         copy Instruction_UA.txt release\Instruction_UA.txt

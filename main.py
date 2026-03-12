@@ -3,6 +3,7 @@ import sac_check
 import sac_start
 import sac_visualize
 import sac_exit
+import sac_convert
 
 
 def main():
@@ -15,7 +16,8 @@ def main():
     print("C / Check / 1       - Check input/output files")
     print("S / Start / 2       - Start processing")
     print("V / Visualize / 3   - Show total result")
-    print("E / Exit / 4        - Exit program\n")
+    print("O / OCR / 4         - Convert images to input")
+    print("E / Exit / 5        - Exit program\n")
 
     while True:
         user_input = input("Enter command: ").strip().lower()
@@ -28,7 +30,9 @@ def main():
             sac_start.run()
         elif user_input in {"v", "visualize", "3"}:
             sac_visualize.run()
-        elif user_input in {"e", "exit", "4"}:
+        elif user_input in {"o", "ocr", "4"}:
+            sac_convert.run()
+        elif user_input in {"e", "exit", "5"}:
             sac_exit.run()
         else:
             print("Wrong input!")
