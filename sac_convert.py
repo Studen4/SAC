@@ -1,4 +1,5 @@
 import os
+import sys
 import csv
 import time
 import cv2
@@ -16,6 +17,21 @@ OUTPUT_INPUT = "Workspace/input.csv"
 # ABC123
 # Test_Name
 NICK_REGEX = re.compile(r"[A-Za-z0-9_]{3,20}")
+
+
+def get_base_path():
+    if getattr(sys, 'frozen', False):
+        return os.path.dirname(sys.executable)
+    return os.path.dirname(__file__)
+
+
+BASE_PATH = get_base_path()
+
+pytesseract.pytesseract.tesseract_cmd = os.path.join(
+    BASE_PATH,
+    "Tesseract",
+    "tesseract.exe"
+)
 
 
 def preprocess(img):
